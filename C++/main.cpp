@@ -2,7 +2,7 @@
 
 using namespace std;
 
-template<class T, int size> class vec {     // L1 Declaración de plantilla
+template<class T, int size> class vec {     // Clase Vector(vec<T,int>)
   private:
   // Componentes
   T* elems;
