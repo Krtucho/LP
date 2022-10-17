@@ -8,6 +8,56 @@ template<class T, int size> class vec {     // Clase Vector(vec<T,int>)
   T* elems;
 
   public:
+  // Componente X
+  T X(){
+    if(size == 2 || size == 3){
+      return elems[0];
+    }else{
+      throw "No tiene dimension 2 o 3";
+    }
+  }
+  // Componente X
+  void X(T value){
+    if(size == 2 || size == 3){
+      elems[0] = value;
+    }else{
+      throw "No tiene dimension 2 o 3";
+    }
+  }
+  
+  // Componente Y
+  T Y(){
+    if(size == 2 || size == 3){
+      return elems[1];
+    }else{
+      throw "No tiene dimension 2 o 3";
+    }
+  }
+  // Componente Y
+  void Y(T value){
+    if(size == 2 || size == 3){
+      elems[1] = value;
+    }else{
+      throw "No tiene dimension 2 o 3";
+    }
+  }
+
+  // Componente Z
+  T Z(){
+    if(size == 3){
+      return elems[2];
+    }else{
+      throw "No tiene dimension 3";
+    }
+  }
+  // Componente Z
+  void Z(T value){
+    if(size == 3){
+      elems[2] = value;
+    }else{
+      throw "No tiene dimension 3";
+    }
+  }
   // int x {return elems[0];}
   // int y {return}
   // Cantidad de componentes
@@ -130,9 +180,15 @@ int main(){
   vec<float, 3> cin_vector;
   cout << vector[0] << "\n" << vector[1] << "\n";
   // cout << vector << endl;
-  cin >> cin_vector;
+  // cin >> cin_vector;
   cout << cin_vector;
   // cout << temp_vector;
+
+  vec<int, 3> X_vector = vec<int,3>(2);
+  cout << X_vector.X() << endl;
+  X_vector.X(3);
+  cout << X_vector.X() << endl;
+
 
 	return 0;
 
