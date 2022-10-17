@@ -58,8 +58,7 @@ template<class T, int size> class vec {     // Clase Vector(vec<T,int>)
       throw "No tiene dimension 3";
     }
   }
-  // int x {return elems[0];}
-  // int y {return}
+
   // Cantidad de componentes
   int Size(){return size;}
   // constructor por defecto
@@ -95,7 +94,7 @@ template<class T, int size> class vec {     // Clase Vector(vec<T,int>)
     }
 
   }
-  // ~vec() { delete [] elems;  }    // destructor
+
   // Indexer
   T& operator[](int i) { return elems[i]; }
 
@@ -134,62 +133,41 @@ template<class T, int size> class vec {     // Clase Vector(vec<T,int>)
     }
 };
 
-// template class vec<T,2>: public vec<T, int>{}
-
 int main(){
-	//int resultado = 1;//suma(1,1);
-    // bool a = isCpp0x();
-    // bool b = IsCxx03();
-	// cout << "El resultado es: " << b << "\n";
   int elems[]={2, 2};
   int elems2[]={1, 4};
-  // cout<<sizeof elems;
+
+  // Comenzando a crear vectores con cada constructor
   vec<int, 2> temp;
-  temp = vec<int,2>(elems);
+  temp = vec<int,2>(elems); // constructor a partir de un array
   vec<int, 2> temp2;
-  temp2 = vec<int,2>(elems2);
-  // int a = 1;
-  // long b = 2;
-  // float c = 3.2;
-  // double d = 10.5;
-  // unsigned int e = 20;
+  temp2 = vec<int,2>(elems2); // constructor a partir de un array
+
+  vec<float, 3> temp3;
+  temp3 = vec<float,3>(3); // constructor de valor replicado a todas las componentes
+
+  vec<float, 4> temp4;
+  temp4 = vec<float, 4>(); // constructor por defecto
+
+  vec<float, 4> temp5;
+  temp5 = vec<float,4>(temp4); // constructor por copia
+
+  cout << "Testing v.size():\n" << temp3.Size() << endl; // v.size() // devuelve 3
+
+  temp[0] = 4;
+  cout << "Testing v[0] = 4:\n" << temp[0] << endl; // v[0] = 4
+
   vec<int, 2>  vector = temp + temp2;
-  // cout << c + e << "\n" << a + d<< "\n";
-  // temp[1] = 4;
-  // cout << temp[1];
-  // cout << temp.Dimension();
+  cout << "Testing v1 + v2:" << "\nv1: " << temp << "v2: " << temp2 << "v1 + v2: " << vector << endl; // v1 + v2
 
-  // Array<char> alpha1(26);
-  //  for (int i = 0 ; i < alpha1.Length() ; i++)
-  //     alpha1[i] = 'A' + i;
+  temp3.X(5);
+  cout << "Testing v.x:" << "\n" << temp3.X() << endl; // v.x = 5
 
-  //  alpha1.print();
+  cout << "Testing <<:\n" << temp5 << endl; // <<
 
-  //  Array<char> alpha2(26);
-  //  for (int i = 0 ; i < alpha2.Length() ; i++)
-  //     alpha2[i] = 'a' + i;
-
-  //  alpha2.print();
-  //  Array<char>*alpha3 = combine(alpha1, alpha2);
-  //  alpha3->print();
-  //  delete alpha3;
-
-  vec<int, 2> temp_vector = vec<int, 2>(vector);
-  vec<float, 3> f_vector = vec<float, 3>(4);
-  vec<float, 3> l_vector = vec<float, 3>(3) + f_vector;
-  vec<float, 3> cin_vector;
-  cout << vector[0] << "\n" << vector[1] << "\n";
-  // cout << vector << endl;
-  // cin >> cin_vector;
-  cout << cin_vector;
-  // cout << temp_vector;
-
-  vec<int, 3> X_vector = vec<int,3>(2);
-  cout << X_vector.X() << endl;
-  X_vector.X(3);
-  cout << X_vector.X() << endl;
-
+  cout << "Testing >>:\n" << temp5 << endl; // >>
+  cin >> temp2; // >>
+  cout << temp2; // <<
 
 	return 0;
-
 }
